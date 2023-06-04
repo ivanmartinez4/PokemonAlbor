@@ -8,6 +8,7 @@ Program 0
         0929 route2 (-70 not used)
         0947 driftveil_drawbridge (71+ not used)
         0950 marvelous_bridge (-53 not used)
+        0970 dragonspiral_tower (-58 not used)
     Grand Piano (127/55/1/114) c3 53 | 58 | 65 | 70 | 77 | (x/50/x/x) 127
         0907 surf (-65 not used)
         0909 hall_of_fame (-77 not used)
@@ -17,6 +18,7 @@ Program 0
         0929 route2 (-70 not used)
         0950 marvelous_bridge (-53 not used)
         0956 gear_station
+        0970 dragonspiral_tower (-58 not used)
     Grand Piano (127/55/1/114) g4 70 | 77 | (x/50/x/x) 127
         0899 intro_1
         0907 surf (-65 not used)
@@ -58,11 +60,18 @@ Program 2
 Program 3
     Rhodes (127/70/1/115) 67 | 127
         0906 cycling
-        0908 underwater
+        0908 underwater (68-69 not used)
         0909 hall_of_fame
         0915 undella_winter
         0918 nacrene
         0921 driftveil
+        0967 chargestone_cave
+        0970 dragonspiral_tower
+    Rhodes (127/70/1/115) 55 | 127
+        0966 dreamyard
+    Rhodes (127/70/1/115) 69 | 127
+        0908 underwater (68-69 not used)
+        0969 relic_castle
     Rhodes (127/60/1/116) 68 | 127
         0951 poke_center
     [HG] Suitcase EP (127/70/1/115) 68 | 127
@@ -74,6 +83,8 @@ Program 4
     Rhodes (127/70/1/125) 67 | 127
         0922 mistralton (-67 not used)
         0955 gate
+        0966 dreamyard (-67 not used)
+        0968 cold_storage
     Rhodes (127/70/1/124) 67 | 127
         0958 poke_transfer_lab
     VB Singing 5 (127/127/120/120)
@@ -121,9 +132,12 @@ Program 10
         0928 route1
         0941 route12
         0958 poke_transfer_lab
+        0965 n_castle (-68 not used)
+        0969 relic_castle (-68 not used)
     Vibraphone (127/80/1/116) c5 80 | 127
         0907 surf
         0915 undella_winter (-80 not used)
+        0965 n_castle (-68 not used)
     Vibraphone (127/80/1/118) 60 | (x/x/x/116) 127
         0925 opelucid_white
     Softer Vibraphone (127/80/10/118) 68 | (x/x/x/116) 127
@@ -137,6 +151,7 @@ Program 11
         0927 white_forest (70+ not used)
         0928 route1 (-57 not used)
         0929 route2 (-57 not used)
+        0969 relic_castle
     Marimba (127/80/1/116) 55 | 67 | 127
         0923 icirrus (-55 not used)
         0951 poke_center
@@ -161,9 +176,16 @@ Program 14
         0941 route12
         0947 driftveil_drawbridge (72+ not used)
         0960 entralink (72+ not used)
+        0968 cold_storage (-71 not used)
+    Tubular Bells (127/80/1/116) g4
+        0899 intro_1 (72+ not used)
+        0910 credits (72+ not used)
+        0947 driftveil_drawbridge (72+ not used)
+        0960 entralink (72+ not used)
+        0965 n_castle
     Tubular Bells (127/80/1/116) c5
         0901 title
-    Nylon String Guitar (127/42/20/116) 52 | 60 | 127
+        0968 cold_storage (-71 not used)
     VB Singing 15 (127/127/120/120)
         0949 village_bridge
 
@@ -228,6 +250,7 @@ Program 20
 
 Program 21
     Folk Guitar (127/60/30/118) 52 | 60 | 69 | 127
+        0969 relic_castle (70+ not used)
     VB Singing 22 (127/127/120/120)
         0949 village_bridge
 
@@ -242,6 +265,7 @@ Program 23
         0910 credits (53+ not used)
         0953 gym (71+ not used)
         0958 poke_transfer_lab (53-60 not used)
+        0968 cold_storage
     GS Electric Guitar (127/80/100/118) 52 | 62 | 70 | 127
         0956 gear_station
     VB Singing 24 (127/127/120/120)
@@ -269,6 +293,7 @@ Program 25
         0954 juniper_lab (46+ not used)
     Jazz Double Bass (127/60/1/116) c2
         0901 title
+        0966 dreamyard
     Jazz Double Bass (127/50/1/118) 45 | 53 | 127
         0917 striaton (54+ not used)
     Jazz Double Bass (127/80/1/118) 48 | 127
@@ -293,6 +318,7 @@ Program 27
         0927 white_forest (42+ not used)
         0955 gate (47+ not used)
         0961 someones_entralink (47+ not used)
+        0969 relic_castle (-34 not used)
     Fretless Bass 2 (127/110/110/118) 34 | 41 | 127
         0927 white_forest (42+ not used)
         0953 gym
@@ -316,13 +342,17 @@ Program 29
         0921 driftveil (44 not used)
         0922 mistralton
         0926 black_city
+        0970 dragonspiral_tower (44+ not used)
     Elastik Synth Bass (127/125/120/120) 43 | 127
         0907 surf
         0909 hall_of_fame (44 not used)
         0910 credits (44+ not used)
         0921 driftveil (44 not used)
+        0970 dragonspiral_tower (44+ not used)
     Elastik Synth Bass (127/125/120/120) c2
         0905 evolution
+        0910 credits (44+ not used)
+        0970 dragonspiral_tower (44+ not used)
 
 Program 30
     Strings 1 (127/100/110/116) 66 | 75 | 82 | 127
@@ -356,6 +386,12 @@ Program 30
         0960 entralink (83+ not used)
         0962 unity_tower (76+ not used)
         0963 pokemon_league
+        0964 n_castle_bridge (83+ not used)
+        0965 n_castle
+        0966 dreamyard
+        0967 chargestone_cave (76+ not used)
+        0969 relic_castle (83+ not used)
+        0970 dragonspiral_tower (76+ not used)
     Strings 1 (127/100/110/116) 66 | 75 | 127
         0905 evolution (76+ not used)
         0906 cycling (83+ not used)
@@ -375,6 +411,12 @@ Program 30
         0959 royal_unova (83+ not used)
         0960 entralink (83+ not used)
         0962 unity_tower (76+ not used)
+        0964 n_castle_bridge (83+ not used)
+        0967 chargestone_cave (76+ not used)
+        0969 relic_castle (83+ not used)
+        0970 dragonspiral_tower (76+ not used)
+    Strings 1 (127/100/110/120) 66 | 127
+        0971 lostlorn_forest
     Strings 1 (127/100/110/118) 65 | 74 | (122/x/x/x) 83 | 127
         0950 marvelous_bridge
 
@@ -401,12 +443,18 @@ Program 33
         0910 credits (50+ not used)
         0950 marvelous_bridge (50+ not used)
         0963 pokemon_league (50+ not used)
+        0964 n_castle_bridge (50+ not used)
+        0965 n_castle (50+ not used)
+        0967 chargestone_cave (50+ not used)
     Cello (120/100/127/116) g2
         0899 intro_1 (50+ not used)
         0901 title
         0910 credits (50+ not used)
         0950 marvelous_bridge (50+ not used)
         0963 pokemon_league (50+ not used)
+        0964 n_castle_bridge (50+ not used)
+        0965 n_castle (50+ not used)
+        0967 chargestone_cave (50+ not used)
     Cello (124/100/120/116) g2
         0900 intro_2
 
@@ -414,11 +462,18 @@ Program 34
     Pizzicato Strings (127/70/1/116) 48 | (x/75/x/x) 57 | 65 | (x/80/x/x) 74 | 127
         0913 anville (-48 not used)
         0960 entralink (49+ not used)
+        0966 dreamyard (-48 not used)
+        0967 chargestone_cave (-57 not used)
+        0970 dragonspiral_tower (75+ not used)
+    Pizzicato Strings (127/70/1/120) 48 | (x/75/x/x) 57 | 65 | (x/80/x/x) 127
+        0971 lostlorn_forest
     Pizzicato Strings (127/80/20/116) 48 | 57 | 65 | 74 | 127
         0929 route2 (-48 not used)
 
 Program 35
     Harp 2 (127/75/1/116) 64 | (x/80/x/x) 72 | 127
+    Harp 2 (127/75/1/110) 64 | (x/80/x/x) 72 | 127
+        0971 lostlorn_forest
 
 Program 36
     Harp 1 (127/80/1/116) 57 | (x/90/x/x) 69 | 81 | 127
@@ -428,6 +483,7 @@ Program 36
         0960 entralink (82+ not used)
         0962 unity_tower
         0963 pokemon_league (-57; 82+ not used)
+        0964 n_castle_bridge (82+ not used)
     Harp 1 (127/80/1/116) 55 | (x/90/x/x) 67 | (x/100/x/x) 127
         0907 surf
 
@@ -444,12 +500,15 @@ Program 38
         0960 entralink (59+ not used)
         0962 unity_tower (65+ not used)
         0963 pokemon_league (59+ not used)
+        0967 chargestone_cave (59+ not used)
     Timpani (127/50/1/116) g3
         0901 title
         0910 credits (59+ not used)
         0937 route6 (59+ not used)
         0960 entralink (59+ not used)
         0963 pokemon_league (59+ not used)
+        0965 n_castle
+        0967 chargestone_cave (59+ not used)
     Timpani (127/60/40/118) 59 | 127
         0905 evolution
 
@@ -493,6 +552,7 @@ Program 42
         0941 route12 (-52 not used)
         0960 entralink (70+ not used)
         0962 unity_tower
+        0964 n_castle_bridge (-52; 70+ not used)
     French Horns (127/110/120/116) d4 69 | 127
         0901 title
         0963 pokemon_league (70+ not used)
@@ -501,13 +561,15 @@ Program 42
         0911 nuvema (-53 not used)
         0929 route2 (53 not used)
         0937 route6 (-52 not used)
+        0966 dreamyard (53 not used)
+        0967 chargestone_cave (-52 not used)
     French Horns (127/110/120/116) 52 | 53 | 127
         0910 credits
         0963 pokemon_league (-53 not used)
-    French Horns (127/117/118/116) f3 59 | 68 | (x/x/127/x) 127
-        0907 surf
     French Horns (127/110/120/116) f3 59 | 68 | 127
         0953 gym
+    French Horns (127/117/118/116) f3 59 | 68 | (x/x/127/x) 127
+        0907 surf
 
 Program 43
     Tuba (127/110/115/116) 43 | 50 | 127
@@ -519,9 +581,14 @@ Program 44
     Oboe (127/100/100/116) 69 | 77 | 127
         0927 white_forest (78+ not used)
         0960 entralink (78+ not used)
+        0969 relic_castle (78+ not used)
+        0970 dragonspiral_tower (78+ not used)
     Oboe (127/100/100/116) 69 | 127
         0925 opelucid_white
         0927 white_forest (78+ not used)
+        0960 entralink (78+ not used)
+        0969 relic_castle (78+ not used)
+        0970 dragonspiral_tower (78+ not used)
     Oboe (127/100/100/116) c5 77 | 127
         0901 title
 
@@ -534,6 +601,9 @@ Program 45
         0946 skyarrow_bridge (-60 not used)
         0948 tubeline_bridge
         0954 juniper_lab
+        0967 chargestone_cave
+    Clarinet (127/100/100/120) 60 | 69 | 127
+        0971 lostlorn_forest
     Clarinet Ensemble (127/100/100/116) 66 | 75 | 127
         0951 poke_center (76+ not used)
     Nylon String Guitar (127/42/20/116) g3 60 | 127
@@ -636,6 +706,8 @@ Program 62
         0899 intro_1
         0901 title
         0910 credits
+        0967 chargestone_cave
+        0971 lostlorn_forest
 
 Program 63
     Choir Aahs (127/100/110/118) 57 | 63 | 70 | 127
@@ -643,6 +715,7 @@ Program 63
     Choir Aahs (127/100/110/118) a3 63 | 70 | 127
         0910 credits
         0950 marvelous_bridge (-63 not used)
+        0965 n_castle
     Choir Aahs (127/100/110/118) f4 70 | 127
         0926 black_city
         0950 marvelous_bridge (-63 not used)
@@ -652,6 +725,8 @@ Program 63
 Program 64
     Choir Aahs Female (127/100/110/116) 70 | 76 | 127
         0899 intro_1
+    Independence Strings Sus (127/127/127/120)
+        0971 lostlorn_forest
 
 Program 65
 
@@ -668,8 +743,12 @@ Program 70
         0949 village_bridge
     Gong 34" (127/45/1/100)
         0899 intro_1
+    Shakuhachi (127/127/127/120)
+        0971 lostlorn_forest
 
 Program 71
+    Koto (127/90/100/110) 31 | 127
+        0971 lostlorn_forest (-31 not used)
 
 Program 72
 
@@ -680,6 +759,8 @@ Program 74
 Program 75
     Sitar (127/55/1/116) 53 | (x/x/x/118) 62 | (x/x/x/116) 72 | 127
         0908 underwater
+    Pipe Organ (127/100/110/116) 50 | 58 | 66 | 75 | 127
+        0965 n_castle (76+ not used)
     Pipe Organ (127/100/110/116) c4 66 | 75 | 127
         0910 credits
 
@@ -759,11 +840,15 @@ Program 80
                 0924 opelucid_black
         32
             Zero-G EQ Side Stick (127/127/120/116/64)
+                0968 cold_storage
+            Zero-G EQ Side Stick (127/127/120/116/56)
+                0969 relic_castle
         33
             SD-90 Standard Kick C2 (127/127/120/116/64)
                 0907 surf
                 0925 opelucid_white
                 0955 gate
+                0968 cold_storage
             [DP] bassdr2_16 (127/127/120/116/64)
                 0953 gym
             Zero-G EQ Side Stick (127/127/120/116/64) +1
@@ -773,6 +858,8 @@ Program 80
                 0916 undella_summer
                 0919 castelia
                 0946 skyarrow_bridge
+                0968 cold_storage
+                0969 relic_castle
             [DP] 808 Snare (127/116/0/120/64)
                 0913 anville
             VB Beatbox A#1 (127/127/127/125/64)
@@ -897,6 +984,8 @@ Program 80
                 0953 gym
                 0955 gate
                 0958 poke_transfer_lab
+            [HG] Closed Hi-Hat (127/124/0/116/40)
+                0969 relic_castle
             [HG] Closed Hi-Hat (127/100/0/120/80)
                 0951 poke_center
                 0957 battle_subway
@@ -962,6 +1051,8 @@ Program 80
                 0953 gym
                 0955 gate
                 0958 poke_transfer_lab
+            [HG] Open Hi-Hat (127/102/0/116/40)
+                0969 relic_castle
             [HG] Open Hi-Hat (127/102/0/120/80)
                 0951 poke_center
             [HG] Open Hi-Hat (127/102/0/120/90)
@@ -993,6 +1084,7 @@ Program 80
                 0910 credits
                 0933 route4
                 0960 entralink
+                0965 n_castle
             [HG] Orchestral Cymbal (127/80/0/114/64)
                 0900 intro_2
                 0937 route6
@@ -1019,6 +1111,7 @@ Program 80
                 0948 tubeline_bridge
             [HG] Rock Crash Cymbal (127/90/0/114/90)
                 0920 nimbasa
+                0969 relic_castle
             [HG] Rock Crash Cymbal (127/80/0/114/64)
                 0945 route10
                 0953 gym
@@ -1038,6 +1131,8 @@ Program 80
                 0920 nimbasa
             [HG] Rock Crash Cymbal (127/80/0/114/64) +1
                 0953 gym
+            SD-90 Standard Kick B1 (127/127/120/116/64) +16
+                0968 cold_storage
         51
             [HG] Rock Crash Cymbal (127/90/0/114/64) +2
                 0906 cycling
@@ -1204,6 +1299,7 @@ Program 80
         76
             Shaker (127/110/90/116/25)
                 0916 undella_summer
+                0967 chargestone_cave
             Shaker (127/110/90/116/34)
                 0949 village_bridge
             Shaker (127/110/90/120/34)
@@ -1239,8 +1335,11 @@ Program 80
             Triangle Closed (127/110/110/116/32)
                 0917 striaton
                 0950 marvelous_bridge
+                0968 cold_storage
             Triangle Closed (127/110/110/116/90)
                 0916 undella_summer
+            Triangle Closed (127/127/120/124/64) +12
+                0971 lostlorn_forest
         85
             Triangle Open (127/110/110/116/32)
                 0906 cycling
@@ -1248,8 +1347,11 @@ Program 80
                 0917 striaton
                 0950 marvelous_bridge
                 0952 shopping_mall_nine
+                0968 cold_storage
             Triangle Open (127/110/110/116/90)
                 0916 undella_summer
+            Triangle Open (127/90/0/114/64)
+                0971 lostlorn_forest
             [DP] SD-90 Triangle (127/80/0/118/44)
                 0929 route2
         86
@@ -1268,9 +1370,13 @@ Program 81
                 0918 nacrene
             DnB Drum Loop (HoF) (127/127/120/116/64)
                 0909 hall_of_fame
+            Zero-G Rim Hit (127/127/120/116/64) +6
+                0966 dreamyard
         36
             909 Kick B1 (127/127/120/116/64)
                 0918 nacrene
+                0966 dreamyard
+                0970 dragonspiral_tower
         37
             909 Kick B1 (127/127/120/116/64) +1
                 0909 hall_of_fame
@@ -1288,12 +1394,14 @@ Program 81
                 0918 nacrene
                 0921 driftveil
                 0926 black_city
+                0966 dreamyard
         41
             909 Snare E2 (127/114/90/116/64) +1
                 0921 driftveil
         42
             909 Closed Hi-Hat (127/105/0/116/80)
                 0909 hall_of_fame
+                0970 dragonspiral_tower
         43
             909 Closed Hi-Hat (127/105/0/116/80) +1
         44
@@ -1312,11 +1420,13 @@ Program 81
             909 Crash (127/100/0/116/64)
                 0909 hall_of_fame
                 0921 driftveil
+                0966 dreamyard
         50
             909 Crash (127/100/0/116/64) +1
         51
             909 Crash (127/100/0/116/64) +2
                 0926 black_city
+                0966 dreamyard
         52
             909 China (127/70/0/110/20)
         53
@@ -1491,19 +1601,38 @@ Program 84
 
 Program 85
     Drum Set
+        36
+            Groove Kick (127/127/120/116/64)
+                0964 n_castle_bridge
+        37
+        38
+        39
+        40
+            Groove Snare (127/114/90/116/64)
+                0964 n_castle_bridge
         41
-            some tom drum
+            Unknown Tom 1 (Someone's Entralink) (127/127/127/116/30)
+                0961 someones_entralink
         42
+            Groove Closed Hi-Hat (127/105/0/116/45)
+                0964 n_castle_bridge
         43
-            some tom drum
+            Unknown Tom 2 (Someone's Entralink) (127/127/127/116/40)
+                0961 someones_entralink
         44
         45
-            some tom drum
+            Unknown Tom 3 (Someone's Entralink) (127/127/127/116/50)
+                0961 someones_entralink
         46
+            Groove Open Hi-Hat (127/65/0/116/45)
+                0964 n_castle_bridge
         47
         48
-            some tom drum
+            Unknown Tom 4 (Someone's Entralink) +1 (127/127/127/116/100)
+                0961 someones_entralink
         49
+            909 Crash (127/100/0/116/40)
+                0964 n_castle_bridge
         50
         51
         52
@@ -1572,6 +1701,7 @@ Program 99
 
 Program 100
     PSG Square 50% (126/100/40/127)
+        0968 cold_storage
 
 Program 101
 
@@ -1653,3 +1783,5 @@ Songs eligible for Soundlist voicegroup
 0960 entralink
 0961 someones_entralink (uses 085)
 0962 unity_tower
+0964 n_castle_bridge (uses 085)
+0970 dragonspiral_tower
