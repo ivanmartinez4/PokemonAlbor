@@ -339,47 +339,47 @@
 // Ruby & Sapphire Music 
 #define RS_MUSIC_START                    START_MUS
 
-#define MUS_LITTLEROOT_TEST               322 // MUS_TETSUJI
-#define MUS_GSC_ROUTE38                   323 // MUS_FIELD13
+#define MUS_LITTLEROOT_TEST               322 // MUS_TETSUJI          // Unused, likely a test track.
+#define MUS_GSC_ROUTE38                   323 // MUS_FIELD13          // Unused, likely a test track.
 #define MUS_CAUGHT                        324 // MUS_KACHI22
 #define MUS_VICTORY_WILD                  325 // MUS_KACHI2
-#define MUS_VICTORY_GYM_LEADER            326 // MUS_KACHI3
+#define MUS_VICTORY_GYM_LEADER            326 // MUS_KACHI3           // Also used in Frontier Brain victories.
 #define MUS_VICTORY_LEAGUE                327 // MUS_KACHI5
-#define MUS_C_COMM_CENTER                 328 // MUS_PCC
-#define MUS_GSC_PEWTER                    329 // MUS_NIBI
-#define MUS_C_VS_LEGEND_BEAST             330 // MUS_SUIKUN
-#define MUS_ROUTE101                      331 // MUS_DOORO1
-#define MUS_ROUTE110                      332 // MUS_DOORO_X1
-#define MUS_ROUTE120                      333 // MUS_DOORO_X3
-#define MUS_PETALBURG                     334 // MUS_MACHI_S2
-#define MUS_OLDALE                        335 // MUS_MACHI_S4
+#define MUS_C_COMM_CENTER                 328 // MUS_PCC              // Unused, likely a test track.
+#define MUS_GSC_PEWTER                    329 // MUS_NIBI             // Used in unused Contest Halls.
+#define MUS_C_VS_LEGEND_BEAST             330 // MUS_SUIKUN           // Unused, likely a test track.
+#define MUS_ROUTE101                      331 // MUS_DOORO1           // Also used in Routes 102 and 103.
+#define MUS_ROUTE110                      332 // MUS_DOORO_X1         // Also used in Routes 112, 114, 117, 111's non-desert section and 118's west half.
+#define MUS_ROUTE120                      333 // MUS_DOORO_X3         // Also used in Routes 121, 124, 125, 126, 127 and 128.
+#define MUS_PETALBURG                     334 // MUS_MACHI_S2         // Also used in Mr. Briney's House and Pretty Petal Flower Shop.
+#define MUS_OLDALE                        335 // MUS_MACHI_S4         // Also used in Lavaridge Town.
 #define MUS_GYM                           336 // MUS_GIM
 #define MUS_SURF                          337 // MUS_NAMINORI
-#define MUS_PETALBURG_WOODS               338 // MUS_DAN01
+#define MUS_PETALBURG_WOODS               338 // MUS_DAN01            // Also used in Artisan Cave, Fiery Path, Granite Cave, Jagged Pass, Marine Cave, Rusturf Tunnel, Scorched Slab and Terra Cave.
 #define MUS_LEVEL_UP                      339 // MUS_FANFA1
 #define MUS_HEAL                          340 // MUS_ME_ASA
 #define MUS_OBTAIN_BADGE                  341 // MUS_ME_BACHI
 #define MUS_OBTAIN_ITEM                   342 // MUS_FANFA4
-#define MUS_EVOLVED                       343 // MUS_FANFA5
+#define MUS_EVOLVED                       343 // MUS_FANFA5           // Also used in egg hatching, trades and upon catching.
 #define MUS_OBTAIN_TMHM                   344 // MUS_ME_WAZA
-#define MUS_LILYCOVE_MUSEUM               345 // MUS_BIJYUTU
-#define MUS_ROUTE122                      346 // MUS_DOORO_X4
+#define MUS_LILYCOVE_MUSEUM               345 // MUS_BIJYUTU          // Also used in the Battle Frontier's Ranking Hall.
+#define MUS_ROUTE122                      346 // MUS_DOORO_X4         // Also used in Route 123 and Birch's intro speech.
 #define MUS_OCEANIC_MUSEUM                347 // MUS_FUNE_KAN
-#define MUS_EVOLUTION_INTRO               348 // MUS_ME_SHINKA
-#define MUS_EVOLUTION                     349 // MUS_SHINKA
+#define MUS_EVOLUTION_INTRO               348 // MUS_ME_SHINKA        // Also used in egg hatching.
+#define MUS_EVOLUTION                     349 // MUS_SHINKA           // Also used in egg hatching and trades.
 #define MUS_MOVE_DELETED                  350 // MUS_ME_WASURE
 #define MUS_ENCOUNTER_GIRL                351 // MUS_SYOUJOEYE
 #define MUS_ENCOUNTER_MALE                352 // MUS_BOYEYE
-#define MUS_ABANDONED_SHIP                353 // MUS_DAN02
-#define MUS_FORTREE                       354 // MUS_MACHI_S3
+#define MUS_ABANDONED_SHIP                353 // MUS_DAN02            // Also used in Faraway and Southern Islands.
+#define MUS_FORTREE                       354 // MUS_MACHI_S3         // Also used in Secret Bases and the Safari Zone's entrance.
 #define MUS_BIRCH_LAB                     355 // MUS_ODAMAKI
-#define MUS_B_TOWER_RS                    356 // MUS_B_TOWER
+#define MUS_B_TOWER_RS                    356 // MUS_B_TOWER          // Used in Battle Tents, Trainer Hill and Battle Frontier's lounges and Exchange Service Corner.
 #define MUS_ENCOUNTER_SWIMMER             357 // MUS_SWIMEYE
-#define MUS_CAVE_OF_ORIGIN                358 // MUS_DAN03
+#define MUS_CAVE_OF_ORIGIN                358 // MUS_DAN03            // Also used in Meteor Falls.
 #define MUS_OBTAIN_BERRY                  359 // MUS_ME_KINOMI
 #define MUS_AWAKEN_LEGEND                 360 // MUS_ME_TAMA
-#define MUS_SLOTS_JACKPOT                 361 // MUS_ME_B_BIG
-#define MUS_SLOTS_WIN                     362 // MUS_ME_B_SMALL
+#define MUS_SLOTS_JACKPOT                 361 // MUS_ME_B_BIG         // Also used in the Roulette.
+#define MUS_SLOTS_WIN                     362 // MUS_ME_B_SMALL       // Also used in the Roulette.
 #define MUS_TOO_BAD                       363 // MUS_ME_ZANNEN
 #define MUS_ROULETTE                      364 // MUS_BD_TIME
 #define MUS_LINK_CONTEST_P1               365 // MUS_TEST1
@@ -388,17 +388,17 @@
 #define MUS_LINK_CONTEST_P4               368 // MUS_TEST4
 #define MUS_ENCOUNTER_RICH                369 // MUS_TEST
 #define MUS_VERDANTURF                    370 // MUS_GOMACHI0
-#define MUS_RUSTBORO                      371 // MUS_GOTOWN
-#define MUS_POKE_CENTER                   372 // MUS_POKECEN
-#define MUS_ROUTE104                      373 // MUS_NEXTROAD
-#define MUS_ROUTE119                      374 // MUS_GRANROAD
+#define MUS_RUSTBORO                      371 // MUS_GOTOWN           // Also used in Mauville City, Mossdeep City, Daycare, Weather Institute and several Route houses.
+#define MUS_POKE_CENTER                   372 // MUS_POKECEN          // Also used in the Pokémon League's lobby.
+#define MUS_ROUTE104                      373 // MUS_NEXTROAD         // Also used in Routes 105, 106, 107, 108, 109, 115 and 116.
+#define MUS_ROUTE119                      374 // MUS_GRANROAD         // Also used in Routes 129, 130, 131, 132, 133, 134 and 118's east half.
 #define MUS_CYCLING                       375 // MUS_CYCLING
-#define MUS_POKE_MART                     376 // MUS_FRIENDLY
+#define MUS_POKE_MART                     376 // MUS_FRIENDLY         // Also used in Lilycove's Department Store.
 #define MUS_LITTLEROOT                    377 // MUS_MISHIRO
-#define MUS_MT_CHIMNEY                    378 // MUS_TOZAN
+#define MUS_MT_CHIMNEY                    378 // MUS_TOZAN            // Also used in Desert Underpass, Mirage Tower, Seafloor Cavern and Sky Pillar.
 #define MUS_ENCOUNTER_FEMALE              379 // MUS_GIRLEYE
-#define MUS_LILYCOVE                      380 // MUS_MINAMO
-#define MUS_ROUTE111                      381 // MUS_ASHROAD
+#define MUS_LILYCOVE                      380 // MUS_MINAMO           // Also used in Pacifidlog Town and the Diving Treasure Hunter's house.
+#define MUS_ROUTE111_DESERT               381 // MUS_ASHROAD
 #define MUS_HELP                          382 // MUS_EVENT0
 #define MUS_UNDERWATER                    383 // MUS_DEEPDEEP
 #define MUS_VICTORY_TRAINER               384 // MUS_KACHI1
@@ -411,29 +411,29 @@
 #define MUS_ENCOUNTER_AQUA                391 // MUS_AQA_0
 #define MUS_FOLLOW_ME                     392 // MUS_TSURETEK
 #define MUS_ENCOUNTER_BRENDAN             393 // MUS_BOY_SUP
-#define MUS_EVER_GRANDE                   394 // MUS_RAINBOW
+#define MUS_EVER_GRANDE                   394 // MUS_RAINBOW          // Also used in link rooms.
 #define MUS_ENCOUNTER_SUSPICIOUS          395 // MUS_AYASII
 #define MUS_VICTORY_AQUA_MAGMA            396 // MUS_KACHI4
 #define MUS_CABLE_CAR                     397 // MUS_ROPEWAY
 #define MUS_GAME_CORNER                   398 // MUS_CASINO
-#define MUS_DEWFORD                       399 // MUS_HIGHTOWN
+#define MUS_DEWFORD                       399 // MUS_HIGHTOWN         // Also used in Route 109's Seashore house.
 #define MUS_SAFARI_ZONE                   400 // MUS_SAFARI
-#define MUS_VICTORY_ROAD                  401 // MUS_C_ROAD
+#define MUS_VICTORY_ROAD                  401 // MUS_C_ROAD           // Also used in Pokémon League's E4/Champion rooms and halls.
 #define MUS_AQUA_MAGMA_HIDEOUT            402 // MUS_AJITO
 #define MUS_SAILING                       403 // MUS_M_BOAT
-#define MUS_MT_PYRE                       404 // MUS_M_DUNGON
-#define MUS_SLATEPORT                     405 // MUS_FINECITY
+#define MUS_MT_PYRE                       404 // MUS_M_DUNGON         // Also used in New Mauville and Shoal Cave.
+#define MUS_SLATEPORT                     405 // MUS_FINECITY         // Also used in Cycling Road's entrances.
 #define MUS_MT_PYRE_EXTERIOR              406 // MUS_MACHUPI
 #define MUS_SCHOOL                        407 // MUS_P_SCHOOL
 #define MUS_HALL_OF_FAME                  408 // MUS_DENDOU
-#define MUS_FALLARBOR                     409 // MUS_TONEKUSA
-#define MUS_SEALED_CHAMBER                410 // MUS_MABOROSI
+#define MUS_FALLARBOR                     409 // MUS_TONEKUSA         // Also used in Route 114's houses.
+#define MUS_SEALED_CHAMBER                410 // MUS_MABOROSI         // Also used in Ancient Tomb, Desert Ruins and Island Cave.
 #define MUS_CONTEST_WINNER                411 // MUS_CON_FAN
 #define MUS_CONTEST                       412 // MUS_CONTEST0
 #define MUS_ENCOUNTER_MAGMA               413 // MUS_MGM0
 #define MUS_INTRO_BATTLE                  414 // MUS_T_BATTLE
-#define MUS_WEATHER_KYOGRE                415 // old MUS_OOAME (Unused, from R/S)
-#define MUS_WEATHER_GROUDON               416 // MUS_HIDERI (Unused, from R/S)
+#define MUS_WEATHER_KYOGRE                415 // old MUS_OOAME        // Unused from R/S.
+#define MUS_WEATHER_GROUDON               416 // MUS_HIDERI           // Unused from R/S.
 #define MUS_SOOTOPOLIS                    417 // MUS_RUNECITY
 #define MUS_CONTEST_RESULTS               418 // MUS_CON_K
 #define MUS_HALL_OF_FAME_ROOM             419 // MUS_EIKOU_R
@@ -442,7 +442,7 @@
 #define MUS_ENCOUNTER_ELITE_FOUR          422 // MUS_SITENNOU
 #define MUS_ENCOUNTER_HIKER               423 // MUS_YAMA_EYE
 #define MUS_CONTEST_LOBBY                 424 // MUS_CONLOBBY
-#define MUS_ENCOUNTER_INTERVIEWER         425 // MUS_INTER_V
+#define MUS_ENCOUNTER_INTERVIEWER         425 // MUS_INTER_V          // Also used during Petalburg City report at the beginning of the game.
 #define MUS_ENCOUNTER_CHAMPION            426 // MUS_DAIGO
 #define MUS_CREDITS                       427 // MUS_THANKFOR
 #define MUS_END                           428 // MUS_END
@@ -500,9 +500,9 @@
 #define MUS_RG_SILPH                      474 // MUS_RG_SHIRUHU
 #define MUS_RG_FUCHSIA                    475 // MUS_RG_HANADA
 #define MUS_RG_CELADON                    476 // MUS_RG_TAMAMUSI
-#define MUS_RG_VICTORY_TRAINER            477 // MUS_RG_WIN_TRE (Identical to MUS_VICTORY_TRAINER)
-#define MUS_RG_VICTORY_WILD               478 // MUS_RG_WIN_YASEI (Identical to MUS_VICTORY_WILD)
-#define MUS_RG_VICTORY_GYM_LEADER         479 // MUS_RG_WIN_GYM (Identical to MUS_VICTORY_GYM_LEADER)
+#define MUS_RG_VICTORY_TRAINER            477 // MUS_RG_WIN_TRE       // Identical to MUS_VICTORY_TRAINER.
+#define MUS_RG_VICTORY_WILD               478 // MUS_RG_WIN_YASEI     // Identical to MUS_VICTORY_WILD.
+#define MUS_RG_VICTORY_GYM_LEADER         479 // MUS_RG_WIN_GYM       // Identical to MUS_VICTORY_GYM_LEADER.
 #define MUS_RG_VERMILLION                 480 // MUS_RG_KUCHIBA
 #define MUS_RG_PEWTER                     481 // MUS_RG_NIBI
 #define MUS_RG_ENCOUNTER_RIVAL            482 // MUS_RG_RIVAL1
@@ -521,11 +521,11 @@
 #define MUS_RG_NET_CENTER                 495 // MUS_RG_NETWORK
 #define MUS_RG_MYSTERY_GIFT               496 // MUS_RG_OKURIMONO
 #define MUS_RG_BERRY_PICK                 497 // MUS_RG_KINOMIKUI
-#define MUS_RG_SEVII_CAVE                 498 // MUS_RG_NANADUNGEON (Identical to MUS_RG_MT_MOON)
-#define MUS_RG_TEACHY_TV_SHOW             499 // MUS_RG_OSHIE_TV (Identical to MUS_RG_FOLLOW_ME)
+#define MUS_RG_SEVII_CAVE                 498 // MUS_RG_NANADUNGEON   // Identical to MUS_RG_MT_MOON.
+#define MUS_RG_TEACHY_TV_SHOW             499 // MUS_RG_OSHIE_TV      // Identical to MUS_RG_FOLLOW_ME.
 #define MUS_RG_SEVII_ROUTE                500 // MUS_RG_NANASHIMA
-#define MUS_RG_SEVII_DUNGEON              501 // MUS_RG_NANAISEKI (Identical to MUS_RG_VIRIDIAN_FOREST)
-#define MUS_RG_SEVII_123                  502 // MUS_RG_NANA123 (Identical to MUS_RG_PEWTER)
+#define MUS_RG_SEVII_DUNGEON              501 // MUS_RG_NANAISEKI     // Identical to MUS_RG_VIRIDIAN_FOREST.
+#define MUS_RG_SEVII_123                  502 // MUS_RG_NANA123       // Identical to MUS_RG_PEWTER
 #define MUS_RG_SEVII_45                   503 // MUS_RG_NANA45
 #define MUS_RG_SEVII_67                   504 // MUS_RG_NANA67
 #define MUS_RG_POKE_FLUTE                 505 // MUS_RG_POKEFUE
@@ -543,7 +543,7 @@
 // Emerald Music
 #define EM_MUSIC_START                    (RG_MUSIC_END + 1)
 
-#define MUS_ABNORMAL_WEATHER              514 // MUS_OOAME
+#define MUS_ABNORMAL_WEATHER              514 // MUS_OOAME            // Replaces MUS_WEATHER_KYOGRE from R/S.
 #define MUS_B_FRONTIER                    515 // MUS_B_FRONTIER
 #define MUS_B_ARENA                       516 // MUS_B_ARENA
 #define MUS_OBTAIN_B_POINTS               517 // MUS_ME_POINTGET
@@ -557,7 +557,7 @@
 #define MUS_B_DOME                        525 // MUS_B_DOME
 #define MUS_B_PIKE                        526 // MUS_B_TUBE
 #define MUS_B_FACTORY                     527 // MUS_B_FACTORY
-#define MUS_VS_RAYQUAZA                   528 // MUS_VS_REKKU (Identical to MUS_VS_KYOGRE_GROUDON)
+#define MUS_VS_RAYQUAZA                   528 // MUS_VS_REKKU         // Identical to MUS_VS_KYOGRE_GROUDON.
 #define MUS_VS_FRONTIER_BRAIN             529 // MUS_VS_FRONT
 #define MUS_VS_MEW                        530 // MUS_VS_MEW
 #define MUS_B_DOME_LOBBY                  531 // MUS_B_DOME1
