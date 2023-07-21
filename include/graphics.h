@@ -8885,10 +8885,8 @@ extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];
 
 //menu graphics
-extern const u16 gMenuInfoElements1_Pal[16];
-extern const u16 gMenuInfoElements2_Pal[16];
-extern const u16 gMenuInfoElements3_Pal[16];
 extern const u8 gMenuInfoElements_Gfx[];
+extern const u16 gMenuInfoElements_Pal[];
 
 // item menu graphics
 extern const u32 gBagScreen_Gfx[];

@@ -537,28 +537,6 @@ static const struct WindowTemplate sLevelUpStatsWindowTemplate =
     .baseBlock = 0x2E9,
 };
 
-static const struct WindowTemplate sUnusedWindowTemplate1 =
-{
-    .bg = 2,
-    .tilemapLeft = 2,
-    .tilemapTop = 15,
-    .width = 27,
-    .height = 4,
-    .paletteNum = 14,
-    .baseBlock = 0x1DF,
-};
-
-static const struct WindowTemplate sUnusedWindowTemplate2 =
-{
-    .bg = 2,
-    .tilemapLeft = 0,
-    .tilemapTop = 13,
-    .width = 18,
-    .height = 3,
-    .paletteNum = 12,
-    .baseBlock = 0x39D,
-};
-
 // Plain tilemaps for party menu slots.
 // The versions with no HP bar are used by eggs, and in certain displays like registering at a battle facility.
 // There is no empty version of the main slot because it shouldn't ever be empty.

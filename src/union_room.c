@@ -2438,7 +2438,6 @@ void RunUnionRoom(void)
     uroom->unreadPlayerId = 0;
 
     gSpecialVar_Result = 0;
-    ListMenuLoadStdPalAt(BG_PLTT_ID(13), 1);
 }
 
 static u16 ReadAsU16(const u8 *ptr)

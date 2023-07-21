@@ -83,28 +83,6 @@ static const struct WindowTemplate sListIndexWindowTemplate =
     .baseBlock = 0x36
 };
 
-static const struct WindowTemplate sUnusedWindowTemplate1 =
-{
-    .bg = 1,
-    .tilemapLeft = 1,
-    .tilemapTop = 0x1C,
-    .width = 5,
-    .height = 2,
-    .paletteNum = 15,
-    .baseBlock = 0x44
-};
-
-static const struct WindowTemplate sUnusedWindowTemplate2 =
-{
-    .bg = 1,
-    .tilemapLeft = 13,
-    .tilemapTop = 0x1C,
-    .width = 3,
-    .height = 2,
-    .paletteNum = 15,
-    .baseBlock = 0x44
-};
-
 static const LoopedTask sLoopedTaskFuncs[] =
 {
     [CONDITION_FUNC_NONE]           = NULL,
@@ -252,8 +230,6 @@ static u32 LoopedTask_OpenConditionGraphMenu(s32 state)
         if (IsConditionMenuSearchMode() == TRUE)
         {
             menu->listIndexWindowId = AddWindow(&sListIndexWindowTemplate);
-            menu->unusedWindowId1 = AddWindow(&sUnusedWindowTemplate1);
-            menu->unusedWindowId2 = AddWindow(&sUnusedWindowTemplate2);
         }
         DeactivateAllTextPrinters();
         return LT_INC_AND_PAUSE;

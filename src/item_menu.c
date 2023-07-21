@@ -2452,12 +2452,13 @@ static void CopyPocketNameToWindow(u32 a)
 static void LoadBagMenuTextWindows(void)
 {
     u8 i;
+    u8 palId;
 
     InitWindows(sDefaultBagWindows);
     DeactivateAllTextPrinters();
     LoadUserWindowBorderGfx(0, 1, BG_PLTT_ID(14));
     LoadMessageBoxGfx(0, 10, BG_PLTT_ID(13));
-    ListMenuLoadStdPalAt(BG_PLTT_ID(12), 1);
+    ListMenuLoadStdPalAt(BG_PLTT_ID(12));
     LoadPalette(&gStandardMenuPalette, BG_PLTT_ID(15), PLTT_SIZE_4BPP);
     for (i = 0; i <= WIN_POCKET_NAME; i++)
     {
@@ -2471,12 +2472,6 @@ static void LoadBagMenuTextWindows(void)
 static void BagMenu_Print(u8 windowId, u8 fontId, const u8 *str, u8 left, u8 top, u8 letterSpacing, u8 lineSpacing, u8 speed, u8 colorIndex)
 {
     AddTextPrinterParameterized4(windowId, fontId, left, top, letterSpacing, lineSpacing, sFontColorTable[colorIndex], speed, str);
-}
-
-// Unused
-static u8 BagMenu_GetWindowId(u8 windowType)
-{
-    return gBagMenu->windowIds[windowType];
 }
 
 static u8 BagMenu_AddWindow(u8 windowType)

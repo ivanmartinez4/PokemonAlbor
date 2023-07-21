@@ -4,7 +4,6 @@ TILESETGFXDIR := data/tilesets
 FONTGFXDIR := graphics/fonts
 INTERFACEGFXDIR := graphics/interface
 BTLANMSPRGFXDIR := graphics/battle_anims/sprites
-UNUSEDGFXDIR := graphics/unused
 UNKNOWNGFXDIR := graphics/unknown
 BATINTGFXDIR := graphics/battle_interface
 MASKSGFXDIR := graphics/battle_anims/masks
@@ -339,42 +338,10 @@ $(BTLANMSPRGFXDIR)/ice_cube.4bpp: $(BTLANMSPRGFXDIR)/ice_cube_0.4bpp \
                                   $(BTLANMSPRGFXDIR)/ice_cube_3.4bpp
 	@cat $^ >$@
 
-$(UNUSEDGFXDIR)/obi_palpak1.gbapal: $(UNUSEDGFXDIR)/old_pal1.gbapal \
-                                    $(UNUSEDGFXDIR)/old_pal2.gbapal \
-                                    $(UNUSEDGFXDIR)/old_pal3.gbapal
-	@cat $^ >$@
-
-$(UNUSEDGFXDIR)/obi_palpak3.gbapal: $(UNUSEDGFXDIR)/old_pal5.gbapal \
-                                    $(UNUSEDGFXDIR)/old_pal6.gbapal \
-                                    $(UNUSEDGFXDIR)/old_pal7.gbapal
-	@cat $^ >$@
-
-$(UNUSEDGFXDIR)/obi1.4bpp: $(UNUSEDGFXDIR)/old_bulbasaur.4bpp \
-                           $(UNUSEDGFXDIR)/old_charizard.4bpp
-	@cat $^ >$@
-
-$(UNUSEDGFXDIR)/obi2.4bpp: $(UNUSEDGFXDIR)/old_bulbasaur2.4bpp \
-                           $(UNUSEDGFXDIR)/old_battle_interface_1.4bpp \
-                           $(UNUSEDGFXDIR)/old_battle_interface_2.4bpp \
-                           $(UNUSEDGFXDIR)/old_battle_interface_3.4bpp
-	@cat $^ >$@
-
 $(BATINTGFXDIR)/battle_bar.4bpp: $(BATINTGFXDIR)/hpbar_anim_unused.4bpp \
                                  $(BATINTGFXDIR)/numbers1.4bpp \
                                  $(BATINTGFXDIR)/numbers2.4bpp
 	@cat $^ >$@
-
-$(UNUSEDGFXDIR)/redyellowgreen_frame.bin: $(UNUSEDGFXDIR)/red_frame.bin \
-                                          $(UNUSEDGFXDIR)/yellow_frame.bin \
-                                          $(UNUSEDGFXDIR)/green_frame.bin \
-                                          $(UNUSEDGFXDIR)/blank_frame.bin
-	@cat $^ >$@
-
-$(UNUSEDGFXDIR)/color_frames.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 353 -Wnum_tiles
-
-$(BATINTGFXDIR)/unused_window2bar.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 5 -Wnum_tiles
 
 $(JPCONTESTGFXDIR)/composite_1.4bpp: $(JPCONTESTGFXDIR)/frame_1.4bpp \
                                      $(JPCONTESTGFXDIR)/floor.4bpp \
@@ -424,8 +391,7 @@ $(TYPESGFXDIR)/move_types.4bpp: $(types:%=$(TYPESGFXDIR)/%.4bpp) $(contest_types
 	@cat $^ >$@
 
 $(TYPESGFXDIR)/move_types.gbapal: $(TYPESGFXDIR)/move_types_1.gbapal \
-                                  $(TYPESGFXDIR)/move_types_2.gbapal \
-                                  $(TYPESGFXDIR)/move_types_3.gbapal
+                                  $(TYPESGFXDIR)/move_types_2.gbapal
 	@cat $^ >$@
 
 graphics/bag/menu.4bpp: %.4bpp: %.png
@@ -488,11 +454,6 @@ $(BATTRANSGFXDIR)/frontier_square_4.4bpp: $(BATTRANSGFXDIR)/frontier_squares_bla
 $(SLOTMACHINEGFXDIR)/reel_time_gfx.4bpp: $(SLOTMACHINEGFXDIR)/reel_time_pikachu.4bpp \
                                          $(SLOTMACHINEGFXDIR)/reel_time_machine.4bpp
 	@cat $^ >$@
-
-graphics/birch_speech/unused_beauty.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 822 -Wnum_tiles
-
-
 
 ### Pokémon Storage System ###
 
