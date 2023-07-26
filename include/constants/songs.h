@@ -398,7 +398,7 @@
 #define MUS_MT_CHIMNEY                    378 // MUS_TOZAN            // Also used in Desert Underpass, Mirage Tower, Seafloor Cavern and Sky Pillar.
 #define MUS_ENCOUNTER_FEMALE              379 // MUS_GIRLEYE
 #define MUS_LILYCOVE                      380 // MUS_MINAMO           // Also used in Pacifidlog Town and the Diving Treasure Hunter's house.
-#define MUS_ROUTE111_DESERT               381 // MUS_ASHROAD
+#define MUS_DESERT                        381 // MUS_ASHROAD
 #define MUS_HELP                          382 // MUS_EVENT0
 #define MUS_UNDERWATER                    383 // MUS_DEEPDEEP
 #define MUS_VICTORY_TRAINER               384 // MUS_KACHI1
