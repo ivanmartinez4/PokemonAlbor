@@ -34,4 +34,4 @@ Es un hackrom en desarrollo completamente en castellano usando la pokeemerald-ex
 
 - Equipo de Rom Haching Hideout por la pokeemerald-expansion.
 - Equipo de pret por la decompilación de pokeemerald y su wiki.
-
+- Expansión de música por CyanSMP64.
