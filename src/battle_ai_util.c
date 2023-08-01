@@ -1585,7 +1585,7 @@ bool32 ShouldSetSandstorm(u8 battler, u16 ability, u16 holdEffect)
       || ability == ABILITY_MAGIC_GUARD
       || holdEffect == HOLD_EFFECT_SAFETY_GOGGLES
       || IS_BATTLER_OF_TYPE(battler, TYPE_ROCK)
-      || IS_BATTLER_OF_TYPE(battler, TYPE_STEEL)
+      || IS_BATTLER_OF_TYPE(battler, TYPE_FIGHTING)
       || IS_BATTLER_OF_TYPE(battler, TYPE_GROUND)
       || HasMoveEffect(battler, EFFECT_SHORE_UP)
       || HasMoveEffect(battler, EFFECT_WEATHER_BALL))
@@ -1610,6 +1610,7 @@ bool32 ShouldSetHail(u8 battler, u16 ability, u16 holdEffect)
       || ability == ABILITY_OVERCOAT
       || holdEffect == HOLD_EFFECT_SAFETY_GOGGLES
       || IS_BATTLER_OF_TYPE(battler, TYPE_ICE)
+      || IS_BATTLER_OF_TYPE(battler, TYPE_FIGHTING)
       || HasMove(battler, MOVE_BLIZZARD)
       || HasMoveEffect(battler, EFFECT_AURORA_VEIL)
       || HasMoveEffect(battler, EFFECT_WEATHER_BALL))
@@ -2413,7 +2414,7 @@ static bool32 BattlerAffectedBySandstorm(u8 battlerId, u16 ability)
 {
     if (!IS_BATTLER_OF_TYPE(battlerId, TYPE_ROCK)
       && !IS_BATTLER_OF_TYPE(battlerId, TYPE_GROUND)
-      && !IS_BATTLER_OF_TYPE(battlerId, TYPE_STEEL)
+      && !IS_BATTLER_OF_TYPE(battlerId, TYPE_FIGHTING)
       && ability != ABILITY_SAND_VEIL
       && ability != ABILITY_SAND_FORCE
       && ability != ABILITY_SAND_RUSH
@@ -2425,6 +2426,7 @@ static bool32 BattlerAffectedBySandstorm(u8 battlerId, u16 ability)
 static bool32 BattlerAffectedByHail(u8 battlerId, u16 ability)
 {
     if (!IS_BATTLER_OF_TYPE(battlerId, TYPE_ICE)
+      && !IS_BATTLER_OF_TYPE(battlerId, TYPE_FIGHTING)
       && ability != ABILITY_SNOW_CLOAK
       && ability != ABILITY_OVERCOAT
       && ability != ABILITY_ICE_BODY)
@@ -2903,6 +2905,7 @@ bool32 AI_CanBeConfused(u8 battler, u16 ability)
 {
     if ((gBattleMons[battler].status2 & STATUS2_CONFUSION)
       || (ability == ABILITY_OWN_TEMPO)
+      || IS_BATTLER_OF_TYPE(battler, TYPE_PSYCHIC)
       || (IsBattlerGrounded(battler) && (gFieldStatuses & STATUS_FIELD_MISTY_TERRAIN)))
         return FALSE;
     return TRUE;
@@ -2990,6 +2993,7 @@ bool32 AI_CanBeInfatuated(u8 battlerAtk, u8 battlerDef, u16 defAbility)
     if ((gBattleMons[battlerDef].status2 & STATUS2_INFATUATION)
       || AI_GetMoveEffectiveness(AI_THINKING_STRUCT->moveConsidered, battlerAtk, battlerDef) == AI_EFFECTIVENESS_x0
       || defAbility == ABILITY_OBLIVIOUS
+      || (IS_BATTLER_OF_TYPE(battlerDef, TYPE_FAIRY))
       || !AreBattlersOfOppositeGender(battlerAtk, battlerDef)
       || AI_IsAbilityOnSide(battlerDef, ABILITY_AROMA_VEIL))
         return FALSE;

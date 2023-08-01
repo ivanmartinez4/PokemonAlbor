@@ -1454,6 +1454,10 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
                 {
                     score -= 10;
                 }
+                else if (IS_BATTLER_OF_TYPE(battlerDef, TYPE_NORMAL))
+                {
+                    score -= 10;
+                };
             }
             else
             {
@@ -1532,13 +1536,15 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
                 if (CountUsablePartyMons(battlerAtk) == 0
                   && AI_DATA->abilities[battlerAtk] != ABILITY_SOUNDPROOF
                   && AI_DATA->abilities[BATTLE_PARTNER(battlerAtk)] != ABILITY_SOUNDPROOF
+                  && !(IS_BATTLER_OF_TYPE(battlerAtk, TYPE_BUG))
+                  && !(IS_BATTLER_OF_TYPE(BATTLE_PARTNER(battlerAtk), TYPE_BUG))
                   && CountUsablePartyMons(FOE(battlerAtk)) >= 1)
                 {
                     score -= 10; //Don't wipe your team if you're going to lose
                 }
-                else if ((!IsBattlerAlive(FOE(battlerAtk)) || AI_DATA->abilities[FOE(battlerAtk)] == ABILITY_SOUNDPROOF
+                else if ((!IsBattlerAlive(FOE(battlerAtk)) || AI_DATA->abilities[FOE(battlerAtk)] == ABILITY_SOUNDPROOF || IS_BATTLER_OF_TYPE((FOE(battlerAtk)), TYPE_BUG)
                   || gStatuses3[FOE(battlerAtk)] & STATUS3_PERISH_SONG)
-                  && (!IsBattlerAlive(BATTLE_PARTNER(FOE(battlerAtk))) || AI_DATA->abilities[BATTLE_PARTNER(FOE(battlerAtk))] == ABILITY_SOUNDPROOF
+                  && (!IsBattlerAlive(BATTLE_PARTNER(FOE(battlerAtk))) || AI_DATA->abilities[BATTLE_PARTNER(FOE(battlerAtk))] == ABILITY_SOUNDPROOF || IS_BATTLER_OF_TYPE(BATTLE_PARTNER(FOE(battlerAtk)), TYPE_BUG)
                   || gStatuses3[BATTLE_PARTNER(FOE(battlerAtk))] & STATUS3_PERISH_SONG))
                 {
                     score -= 10; //Both enemies are perish songed
@@ -1550,11 +1556,11 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
             }
             else
             {
-                if (CountUsablePartyMons(battlerAtk) == 0 && AI_DATA->abilities[battlerAtk] != ABILITY_SOUNDPROOF
+                if (CountUsablePartyMons(battlerAtk) == 0 && AI_DATA->abilities[battlerAtk] != ABILITY_SOUNDPROOF && !IS_BATTLER_OF_TYPE(battlerAtk, TYPE_BUG)
                   && CountUsablePartyMons(battlerDef) >= 1)
                     score -= 10;
 
-                if (gStatuses3[FOE(battlerAtk)] & STATUS3_PERISH_SONG || AI_DATA->abilities[FOE(battlerAtk)] == ABILITY_SOUNDPROOF)
+                if (gStatuses3[FOE(battlerAtk)] & STATUS3_PERISH_SONG || AI_DATA->abilities[FOE(battlerAtk)] == ABILITY_SOUNDPROOF || IS_BATTLER_OF_TYPE(FOE(battlerAtk), TYPE_BUG))
                     score -= 10;
             }
             break;
@@ -1678,6 +1684,11 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
         case EFFECT_TORMENT:
             if (gBattleMons[battlerDef].status2 & STATUS2_TORMENT
               || DoesPartnerHaveSameMoveEffect(BATTLE_PARTNER(battlerAtk), battlerDef, move, AI_DATA->partnerMove))
+            {
+                score -= 10;
+                break;
+            }
+            if (IS_BATTLER_OF_TYPE(battlerDef, TYPE_DRAGON))
             {
                 score -= 10;
                 break;

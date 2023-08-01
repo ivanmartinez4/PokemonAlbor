@@ -18,7 +18,7 @@ Es un hackrom en desarrollo completamente en castellano usando la pokeemerald-ex
   *Bicho x2 a fantasma.
 
   -Cambios de habilidades especiales de tipos:
-  *Normal inmune a atrapamiento por ataques.
+  *Normal inmune a Otra vez.
   *Lucha inmune a daño de tormenta de arena y tormenta de nieve.
   *Psíquico inmune a confusión.
   *Bicho inmune a Canto mortal.

@@ -4418,7 +4418,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_HAIL] =
     {
-        .effect = EFFECT_HAIL,
+        .effect = EFFECT_SNOWSCAPE,
         .power = 0,
         .type = TYPE_ICE,
         .accuracy = 0,

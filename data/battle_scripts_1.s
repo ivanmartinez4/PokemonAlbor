@@ -4158,6 +4158,7 @@ BattleScript_EffectConfuse:
 	attackstring
 	ppreduce
 	jumpifability BS_TARGET, ABILITY_OWN_TEMPO, BattleScript_OwnTempoPrevents
+	jumpiftype BS_TARGET, TYPE_PSYCHIC, BattleScript_PsiquicoNoSeConfunden
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	jumpifstatus2 BS_TARGET, STATUS2_CONFUSION, BattleScript_AlreadyConfused
 	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_MistyTerrainPrevents
@@ -4168,6 +4169,12 @@ BattleScript_EffectConfuse:
 	setmoveeffect MOVE_EFFECT_CONFUSION
 	seteffectprimary
 	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_PsiquicoNoSeConfunden::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PSIQUICONOSECONFUNDEN
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
@@ -4616,11 +4623,18 @@ BattleScript_EffectEncore::
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
+	jumpiftype BS_TARGET, TYPE_NORMAL, BattleScript_NormalInmuneOtraVez
 	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
 	trysetencore BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	printstring STRINGID_PKMNGOTENCORE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_NormalInmuneOtraVez::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_NORMALINMUNEOTRAVEZ
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
@@ -4962,6 +4976,7 @@ BattleScript_EffectPerishSong::
 	setbyte gBattlerTarget, 0
 BattleScript_PerishSongLoop::
 	jumpifability BS_TARGET, ABILITY_SOUNDPROOF, BattleScript_PerishSongBlocked
+	jumpiftype BS_TARGET, TYPE_BUG, BattleScript_CantoMortalNoAfectaBichos
 	jumpifpranksterblocked BS_TARGET, BattleScript_PerishSongNotAffected
 BattleScript_PerishSongLoopIncrement::
 	addbyte gBattlerTarget, 1
@@ -4976,6 +4991,12 @@ BattleScript_PerishSongBlocked::
 
 BattleScript_PerishSongNotAffected:
 	printstring STRINGID_ITDOESNTAFFECT
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_PerishSongLoopIncrement
+
+BattleScript_CantoMortalNoAfectaBichos::
+	copybyte sBATTLER, gBattlerTarget
+	printstring STRINGID_NOAFECTABICHOS
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_PerishSongLoopIncrement
 
@@ -5066,6 +5087,7 @@ BattleScript_EffectAttract::
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	jumpiftype BS_TARGET, TYPE_FAIRY, BattleScript_HadasNoSeEnamoran
 	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
 	tryinfatuating BattleScript_ButItFailed
 	attackanimation
@@ -5073,6 +5095,12 @@ BattleScript_EffectAttract::
 	printstring STRINGID_PKMNFELLINLOVE
 	waitmessage B_WAIT_TIME_LONG
 	call BattleScript_TryDestinyKnotAttacker
+	goto BattleScript_MoveEnd
+
+BattleScript_HadasNoSeEnamoran::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_HADASNOSEENAMORAN
+	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectPresent::
@@ -5713,11 +5741,19 @@ BattleScript_EffectTorment::
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	jumpiftype BS_TARGET, TYPE_DRAGON, BattleScript_NoAtormentarDragon
 	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
 	settorment BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	printstring STRINGID_PKMNSUBJECTEDTOTORMENT
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+
+BattleScript_NoAtormentarDragon::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_NOATORMENTARDRAGON
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
