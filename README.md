@@ -32,7 +32,10 @@ Es un hackrom en desarrollo completamente en castellano usando la pokeemerald-ex
 
 ## Créditos
 
-- Equipo de Rom Haching Hideout por la pokeemerald-expansion.
+- Equipo de Rom Hacking Hideout por la pokeemerald-expansion.
 - Equipo de pret por la decompilación de pokeemerald y su wiki.
 - CyanSMP64 por expansión de música.
 - Huderlem por poryscript.
+- Ghoulslash por:
+  * Expansión de overworlds.
+  * Autorun.
