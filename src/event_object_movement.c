@@ -484,6 +484,8 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_RS_MAY                  0x1123
 #define OBJ_EVENT_PAL_TAG_DYNAMIC                 0x1124
 #define OBJ_EVENT_PAL_TAG_EMOTES                  0x8002
+// Not a real OW palette tag; used for the white flash applied to followers
+#define OBJ_EVENT_PAL_TAG_WHITE                   (OBJ_EVENT_PAL_TAG_NONE - 1)
 #define OBJ_EVENT_PAL_TAG_NONE 0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -5123,16 +5125,8 @@ bool8 MovementType_FollowPlayer_Shadow(struct ObjectEvent *objectEvent, struct S
 
 bool8 MovementType_FollowPlayer_Active(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
-    if (gPlayerAvatar.tileTransitionState == T_NOT_MOVING && !gObjectEvents[gPlayerAvatar.objectEventId].heldMovementActive )
-    {
-        // do nothing if player is stationary
-        return FALSE;
-    }
-    else if (!IsFollowerVisible())
-    {
-        if (objectEvent->invisible)
-        {
-            // Return to shadowing state
+    if (!IsFollowerVisible()) {
+        if (objectEvent->invisible) { // Return to shadowing state
             sprite->sTypeFuncId = 0;
             return FALSE;
         }
@@ -5165,30 +5159,33 @@ bool8 MovementType_FollowPlayer_Moving(struct ObjectEvent *objectEvent, struct S
             // restore nonzero state
             sprite->sTypeFuncId = 1;
         }
-    }
-    else if (objectEvent->movementActionId != MOVEMENT_ACTION_EXIT_POKEBALL)
-    {
+    } else if (objectEvent->movementActionId < MOVEMENT_ACTION_EXIT_POKEBALL) {
         UpdateFollowerTransformEffect(objectEvent, sprite);
+        #if OW_MON_BOBBING == TRUE
+        if ((sprite->data[5] & 7) == 2)
+            sprite->y2 ^= -1;
+        #endif
     }
     return FALSE;
 }
 
 bool8 FollowablePlayerMovement_Idle(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 playerDirection, bool8 tileCallback(u8))
 {
-    u8 direction;
     if (!objectEvent->singleMovementActive)
-    {
-        // walk in place
-        ObjectEventSetSingleMovement(objectEvent, sprite, GetWalkInPlaceNormalMovementAction(objectEvent->facingDirection));
-        sprite->sTypeFuncId = 1;
-        objectEvent->singleMovementActive = 1;
-        return TRUE;
+    { // walk in place
+      ObjectEventSetSingleMovement(objectEvent, sprite, GetWalkInPlaceNormalMovementAction(objectEvent->facingDirection));
+      sprite->sTypeFuncId = 1;
+      objectEvent->singleMovementActive = 1;
+      return TRUE;
     }
     else if (ObjectEventExecSingleMovementAction(objectEvent, sprite))
-    {
-        // finish movement action
+    { // finish movement action
         objectEvent->singleMovementActive = 0;
     }
+    #if OW_MON_BOBBING == TRUE
+    else if ((sprite->data[3] & 7) == 2)
+        sprite->y2 ^= -1;
+    #endif
     UpdateFollowerTransformEffect(objectEvent, sprite);
     return FALSE;
 }
@@ -5201,7 +5198,7 @@ bool8 FollowablePlayerMovement_Step(struct ObjectEvent *objectEvent, struct Spri
     s16 targetX;
     s16 targetY;
     #ifdef MB_SIDEWAYS_STAIRS_RIGHT_SIDE
-    u8 playerAction = gObjectEvents[gPlayerAvatar.objectEventId].movementActionId;
+    u32 playerAction = gObjectEvents[gPlayerAvatar.objectEventId].movementActionId;
     #endif
 
     targetX = gObjectEvents[gPlayerAvatar.objectEventId].previousCoords.x;
@@ -5209,34 +5206,29 @@ bool8 FollowablePlayerMovement_Step(struct ObjectEvent *objectEvent, struct Spri
     x = gObjectEvents[gPlayerAvatar.objectEventId].currentCoords.x;
     y = gObjectEvents[gPlayerAvatar.objectEventId].currentCoords.y;
 
-    if ((x == targetX && y == targetY) || !IsFollowerVisible())
-    {
-        // don't move on player collision or if not visible
-        return FALSE;
+    if ((x == targetX && y == targetY) || !IsFollowerVisible()) { // don't move on player collision or if not visible
+      return FALSE;
     }
     x = objectEvent->currentCoords.x;
     y = objectEvent->currentCoords.y;
     ClearObjectEventMovement(objectEvent, sprite);
 
-    if (objectEvent->invisible)
-    {
-        // Animate exiting pokeball
-        // Player is jumping, but follower is invisible
-        if (PlayerGetCopyableMovement() == COPY_MOVE_JUMP2)
-        {
-            sprite->sTypeFuncId = 0; // return to shadowing state
-            return FALSE;
-        }
-        MoveObjectEventToMapCoords(objectEvent, targetX, targetY);
-        ObjectEventSetSingleMovement(objectEvent, sprite, MOVEMENT_ACTION_EXIT_POKEBALL);
-        objectEvent->singleMovementActive = 1;
-        sprite->sTypeFuncId = 2;
-        return TRUE;
-    }
-    else if (x == targetX && y == targetY)
-    {
-        // don't move if already in the player's last position
+    if (objectEvent->invisible) { // Animate exiting pokeball
+      // Player is jumping, but follower is invisible
+      if (PlayerGetCopyableMovement() == COPY_MOVE_JUMP2) {
+        sprite->sTypeFuncId = 0; // return to shadowing state
         return FALSE;
+      }
+      MoveObjectEventToMapCoords(objectEvent, targetX, targetY);
+      ObjectEventSetSingleMovement(objectEvent, sprite, MOVEMENT_ACTION_EXIT_POKEBALL);
+      objectEvent->singleMovementActive = 1;
+      sprite->sTypeFuncId = 2;
+      #if OW_MON_BOBBING == TRUE
+      sprite->y2 = 0;
+      #endif
+      return TRUE;
+    } else if (x == targetX && y == targetY) { // don't move if already in the player's last position
+      return FALSE;
     }
 
     // Follow player
@@ -5246,25 +5238,23 @@ bool8 FollowablePlayerMovement_Step(struct ObjectEvent *objectEvent, struct Spri
     GetCollisionAtCoords(objectEvent, x, y, direction); // Sets directionOverwrite for stairs
     if (GetLedgeJumpDirection(x, y, direction) != DIR_NONE) // InitJumpRegular will set the proper speed
         ObjectEventSetSingleMovement(objectEvent, sprite, GetJump2MovementAction(direction));
-    else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_DASH))
-    {
-        // Set follow speed according to player's speed
+    else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_DASH)) { // Set follow speed according to player's speed
         if (playerAction >= MOVEMENT_ACTION_RUN_DOWN_SLOW && playerAction <= MOVEMENT_ACTION_RUN_RIGHT_SLOW)
             objectEvent->movementActionId = GetWalkNormalMovementAction(direction);
         else
             objectEvent->movementActionId = GetWalkFastMovementAction(direction);
 
-    }
-    else if (PlayerGetCopyableMovement() == COPY_MOVE_JUMP2)
-    {
+    } else if (PlayerGetCopyableMovement() == COPY_MOVE_JUMP2) {
         ObjectEventSetSingleMovement(objectEvent, sprite, GetWalkSlowMovementAction(direction));
-    }
-    else
-    {
+    } else {
         if (playerAction >= MOVEMENT_ACTION_WALK_SLOW_DOWN && playerAction <= MOVEMENT_ACTION_WALK_SLOW_RIGHT)
             ObjectEventSetSingleMovement(objectEvent, sprite, GetWalkSlowMovementAction(direction));
-        else
+        else {
             objectEvent->movementActionId = GetWalkNormalMovementAction(direction);
+            #if OW_MON_BOBBING == TRUE
+            sprite->y2 = -1;
+            #endif
+        }
     }
     sprite->sActionFuncId = 0;
     #else
@@ -5275,8 +5265,12 @@ bool8 FollowablePlayerMovement_Step(struct ObjectEvent *objectEvent, struct Spri
     // If *player* jumps, make step take twice as long
     else if (PlayerGetCopyableMovement() == COPY_MOVE_JUMP2)
         ObjectEventSetSingleMovement(objectEvent, sprite, GetWalkSlowMovementAction(direction));
-    else
+    else {
         ObjectEventSetSingleMovement(objectEvent, sprite, GetWalkNormalMovementAction(direction));
+        #if OW_MON_BOBBING == TRUE
+        sprite->y2 = -1;
+        #endif
+    }
     #endif
     objectEvent->singleMovementActive = 1;
     sprite->sTypeFuncId = 2;
@@ -6841,13 +6835,12 @@ bool8 MovementAction_WalkInPlaceSlowDown_Step0(struct ObjectEvent *objectEvent, 
     return MovementAction_WalkInPlaceSlow_Step1(objectEvent, sprite);
 }
 
-// Copy and load objectEvent's palette, but set all opaque colors to white
-static u8 LoadWhiteFlashPalette(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    u16 paletteData[16];
-    struct SpritePalette dynamicPalette = {.tag = OBJ_EVENT_PAL_TAG_NONE-1, .data = paletteData};  // TODO: Use a proper palette tag here
-    CpuFill16(RGB_WHITE, paletteData, 32);
-    return UpdateSpritePalette(&dynamicPalette, sprite);
+// Update sprite with a palette filled with a solid color
+static u8 LoadFillColorPalette(u16 color, u16 paletteTag, struct Sprite *sprite) {
+  u16 paletteData[16];
+  struct SpritePalette dynamicPalette = {.tag = paletteTag, .data = paletteData};
+  CpuFill16(color, paletteData, PLTT_SIZE_4BPP);
+  return UpdateSpritePalette(&dynamicPalette, sprite);
 }
 
 bool8 MovementAction_ExitPokeball_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
@@ -6929,25 +6922,21 @@ bool8 MovementAction_ExitPokeball_Step1(struct ObjectEvent *objectEvent, struct 
         sprite->animCmdIndex = 0;
         sprite->animPaused = TRUE;
         return TRUE;
-        // Set graphics, palette, and affine animation
-    }
-    else if ((duration == 0 && sprite->data[3] == 3) || (duration == 1 && sprite->data[3] == 7))
-    {
-        FollowerSetGraphics(objectEvent, OW_SPECIES(objectEvent), OW_FORM(objectEvent), objectEvent->shiny);
-        LoadWhiteFlashPalette(objectEvent, sprite);
-        // Initialize affine animation
-        sprite->affineAnims = sAffineAnims_PokeballFollower;
-        sprite->oam.affineMode = ST_OAM_AFFINE_NORMAL;
-        InitSpriteAffineAnim(sprite);
-        StartSpriteAffineAnim(sprite, sprite->data[6] >> 4);
-        // Restore original palette & disable affine
-    }
-    else if ((duration == 0 && sprite->data[3] == 1) || (duration == 1 && sprite->data[3] == 3))
-    {
-        sprite->affineAnimEnded = TRUE;
-        FreeSpriteOamMatrix(sprite);
-        sprite->oam.affineMode = ST_OAM_AFFINE_OFF;
-        FollowerSetGraphics(objectEvent, OW_SPECIES(objectEvent), OW_FORM(objectEvent), objectEvent->shiny);
+    // Set graphics, palette, and affine animation
+    } else if ((duration == 0 && sprite->data[3] == 3) || (duration == 1 && sprite->data[3] == 7)) {
+      FollowerSetGraphics(objectEvent, OW_SPECIES(objectEvent), OW_FORM(objectEvent), objectEvent->shiny);
+      LoadFillColorPalette(RGB_WHITE, OBJ_EVENT_PAL_TAG_WHITE, sprite);
+      // Initialize affine animation
+      sprite->affineAnims = sAffineAnims_PokeballFollower;
+      sprite->oam.affineMode = ST_OAM_AFFINE_NORMAL;
+      InitSpriteAffineAnim(sprite);
+      StartSpriteAffineAnim(sprite, sprite->data[6] >> 4);
+    // Restore original palette & disable affine
+    } else if ((duration == 0 && sprite->data[3] == 1) || (duration == 1 && sprite->data[3] == 3)) {
+      sprite->affineAnimEnded = TRUE;
+      FreeSpriteOamMatrix(sprite);
+      sprite->oam.affineMode = ST_OAM_AFFINE_OFF;
+      FollowerSetGraphics(objectEvent, OW_SPECIES(objectEvent), OW_FORM(objectEvent), objectEvent->shiny);
     }
     return FALSE;
 }
@@ -6970,25 +6959,18 @@ bool8 MovementAction_EnterPokeball_Step1(struct ObjectEvent *objectEvent, struct
     {
         sprite->data[2] = 2;
         return FALSE;
-    }
-    else if (sprite->data[3] == 11)
-    {
-        // Set palette to white & start affine
-        LoadWhiteFlashPalette(objectEvent, sprite);
-        sprite->affineAnims = sAffineAnims_PokeballFollower;
-        sprite->oam.affineMode = ST_OAM_AFFINE_NORMAL;
-        InitSpriteAffineAnim(sprite);
-        StartSpriteAffineAnim(sprite, sprite->data[6]);
-    }
-    else if (sprite->data[3] == 7)
-    {
-        // Free white palette and change to pokeball, disable affine
-        sprite->affineAnimEnded = TRUE;
-        FreeSpriteOamMatrix(sprite);
-        sprite->oam.affineMode = ST_OAM_AFFINE_OFF;
-        ObjectEventSetGraphicsId(objectEvent, OBJ_EVENT_GFX_ANIMATED_BALL);
-        objectEvent->graphicsId = graphicsId;
-        objectEvent->inanimate = FALSE;
+    } else if (sprite->data[3] == 11) { // Set palette to white & start affine
+      LoadFillColorPalette(RGB_WHITE, OBJ_EVENT_PAL_TAG_WHITE, sprite);
+      sprite->affineAnims = sAffineAnims_PokeballFollower;
+      sprite->oam.affineMode = ST_OAM_AFFINE_NORMAL;
+      InitSpriteAffineAnim(sprite);
+      StartSpriteAffineAnim(sprite, sprite->data[6]);
+    } else if (sprite->data[3] == 7) { // Free white palette and change to pokeball, disable affine
+      sprite->affineAnimEnded = TRUE;
+      FreeSpriteOamMatrix(sprite);
+      sprite->oam.affineMode = ST_OAM_AFFINE_OFF;
+      ObjectEventSetGraphicsId(objectEvent, OBJ_EVENT_GFX_ANIMATED_BALL);
+      objectEvent->inanimate = FALSE;
     }
     return FALSE;
 }
